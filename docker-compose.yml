@@ -1,0 +1,37 @@
+services:
+  db:
+    image: mariadb:10.7
+    environment:
+      MARIADB_ROOT_PASSWORD: rootpass
+      MARIADB_DATABASE: shop
+      MARIADB_USER: shopping
+      MARIADB_PASSWORD: site
+    volumes:
+      - db-data:/var/lib/mysql
+  phpmyadmin:
+    image: phpmyadmin:5.2
+    depends_on:
+      - db
+    environment:
+      PMA_HOST: db
+      PMA_USER: shopping
+      PMA_PASSWORD: site
+    ports:
+      - "8080:80"
+    volumes:
+      - phpmyadmin-data:/sessions
+  php:
+    build: .
+    depends_on:
+      - db
+    ports:
+      - "80:80"
+    volumes:
+      - type: bind
+        source: ./
+        target: /app
+    command: /bin/bash -c "composer update && /bin/bash"
+    stdin_open: true
+volumes:
+  db-data:
+  phpmyadmin-data:
