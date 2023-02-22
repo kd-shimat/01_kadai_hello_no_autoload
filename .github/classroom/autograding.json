@@ -1,0 +1,14 @@
+{
+  "tests": [
+    {
+      "name": "Hello",
+      "setup": "docker-compose up -d",
+      "run": "docker container exec -it hello_docker-nyanzo_php_1 php ./vendor/bin/phpunit test/ ",
+      "input": "",
+      "output": "OK",
+      "comparison": "included",
+      "timeout": 10,
+      "points": null
+    }
+  ]
+}
