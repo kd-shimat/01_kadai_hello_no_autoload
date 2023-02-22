@@ -2,8 +2,8 @@
   "tests": [
     {
       "name": "Hello",
-      "setup": "docker-compose up -d",
-      "run": "docker-compose exec -T hello-nyanzo_php_1 php \"./vendor/bin/phpunit\" test/ ",
+      "setup": "docker-compose up -d;sleep 5",
+      "run": "docker compose run php php ./vendor/bin/phpunit test/",
       "input": "",
       "output": "OK",
       "comparison": "included",
