@@ -10,7 +10,7 @@ class SampleTest extends TestCase
     {
         $sample = new Sample();
         $result = $sample->hello();
-        $this->assertEquals("Hello",$result);
+        $this->assertEquals('Hello',$result);
     }
 
 }
