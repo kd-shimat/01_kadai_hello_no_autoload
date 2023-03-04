@@ -1,8 +1,7 @@
 <?php
 use PHPUnit\Framework\TestCase;
-use app\Sample;
 
-//require_once("vendor/autload.php");
+require_once __DIR__ . '/../src/Sample.php';
 
 class SampleTest extends TestCase
 {
